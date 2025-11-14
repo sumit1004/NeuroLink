@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NeuroLink - Advanced Healthcare Solutions</title>
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo">
+        <svg class="logo-icon" viewBox="0 0 50 50" width="40" height="40">
+          <circle cx="25" cy="25" r="20" fill="#62B6CB" opacity="0.3" />
+          <path d="M25 10 L25 40 M15 25 L35 25" stroke="#1B4965" stroke-width="3" stroke-linecap="round" />
+          <circle cx="25" cy="25" r="5" fill="#62B6CB" />
+        </svg>
+        <span class="logo-text">NeuroLink</span>
+      </a>
+
+      <button class="mobile-menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-menu">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#subscription">Subscription</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <button class="login-btn">Login</button>
+    </div>
+  </nav>
+
+  <section id="home" class="hero-section">
+    <div class="hero-container">
+      <div class="hero-content">
+        <h1 class="hero-title">Connecting Minds, Empowering Health</h1>
+        <p class="hero-tagline">Advanced neurological care and monitoring solutions that bridge the gap between
+          patients, families, and healthcare providers</p>
+        <button class="cta-button">Get Started</button>
+      </div>
+      <div class="hero-illustration">
+        <!-- <svg viewBox="0 0 500 400" class="doctor-patient-svg">
+            <ellipse cx="250" cy="350" rx="200" ry="30" fill="#BEE9E8" opacity="0.3"/>
+            <rect x="150" y="180" width="80" height="120" rx="40" fill="#5FA8D3"/>
+            <circle cx="190" cy="160" r="30" fill="#CAE9FF"/>
+            <rect x="270" y="200" width="80" height="100" rx="40" fill="#62B6CB"/>
+            <circle cx="310" cy="180" r="25" fill="#CAE9FF"/>
+            <path d="M160 200 Q190 220 220 200" stroke="#1B4965" stroke-width="2" fill="none"/>
+            <path d="M280 220 Q310 240 340 220" stroke="#1B4965" stroke-width="2" fill="none"/>
+            <rect x="200" y="250" width="100" height="60" rx="5" fill="#1B4965" opacity="0.2"/>
+            <circle cx="250" cy="270" r="8" fill="#62B6CB"/>
+          </svg> -->
+
+        <img class="heroimg" src="assets/hero section.png" alt="">
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="about-section">
+    <div class="section-container">
+      <h2 class="section-title">About NeuroLink</h2>
+      <div class="about-content">
+        <div class="about-image">
+          <!-- <svg viewBox="0 0 400 400" class="about-svg">
+            <circle cx="200" cy="200" r="150" fill="#BEE9E8" opacity="0.3" />
+            <circle cx="200" cy="200" r="100" fill="#62B6CB" opacity="0.5" />
+            <circle cx="200" cy="200" r="50" fill="#1B4965" />
+            <path d="M200 150 L200 250 M150 200 L250 200" stroke="#CAE9FF" stroke-width="4" />
+          </svg> -->
+          <img class="aboutimg" src="assets/aboutus.png" alt="">
+        </div>
+        <div class="about-text">
+          <p>NeuroLink is envisioned as an AI/AR/VR-driven web app to serve as a personal
+            digital caregiver: it continuously learns the user’s history and preferences (from photos, notes, routines)
+            and
+            uses voice, vision and intelligent alerts to remind, reassure and engage them. Inspired by recent advances
+            in memory care AI companions</p>
+          <p>NeuroLink’s goal is to help patients recall people, places and events,
+            maintain routines and stay safe — while keeping family in the loop with updates..</p>
+          <div class="about-stats">
+            <div class="stat-item">
+              <h3>10K+</h3>
+              <p>Active Patients</p>
+            </div>
+            <div class="stat-item">
+              <h3>500+</h3>
+              <p>Healthcare Providers</p>
+            </div>
+            <div class="stat-item">
+              <h3>95%</h3>
+              <p>Satisfaction Rate</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <section id="services" class="services-section">
+    <div class="section-container">
+      <h2 class="section-title">Our Services</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 200 200" class="service-svg">
+              <circle cx="100" cy="100" r="80" fill="#BEE9E8" />
+              <circle cx="80" cy="85" r="15" fill="#1B4965" />
+              <circle cx="120" cy="85" r="15" fill="#1B4965" />
+              <path d="M70 120 Q100 140 130 120" stroke="#1B4965" stroke-width="4" fill="none" />
+              <rect x="60" y="40" width="80" height="10" rx="5" fill="#62B6CB" />
+            </svg>
+          </div>
+          <h3 class="service-title">Recognition Feature</h3>
+          <p class="service-description">Advanced facial and behavioral recognition technology for patient monitoring
+            and identification</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 200 200" class="service-svg">
+              <rect x="40" y="40" width="120" height="120" rx="10" fill="#BEE9E8" />
+              <circle cx="70" cy="80" r="8" fill="#1B4965" />
+              <circle cx="100" cy="80" r="8" fill="#1B4965" />
+              <circle cx="130" cy="80" r="8" fill="#1B4965" />
+              <rect x="55" y="100" width="90" height="8" rx="4" fill="#62B6CB" />
+              <rect x="55" y="120" width="70" height="8" rx="4" fill="#5FA8D3" />
+              <rect x="55" y="140" width="85" height="8" rx="4" fill="#62B6CB" />
+            </svg>
+          </div>
+          <h3 class="service-title">Daily Summary Call</h3>
+          <p class="service-description">Automated daily health summaries and updates delivered directly to patients and
+            caregivers</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 200 200" class="service-svg">
+              <rect x="50" y="40" width="100" height="120" rx="5" fill="#BEE9E8" />
+              <rect x="60" y="60" width="20" height="40" fill="#62B6CB" />
+              <rect x="85" y="70" width="20" height="30" fill="#5FA8D3" />
+              <rect x="110" y="55" width="20" height="45" fill="#62B6CB" />
+              <path d="M60 110 L80 95 L105 105 L130 90" stroke="#1B4965" stroke-width="3" fill="none" />
+            </svg>
+          </div>
+          <h3 class="service-title">Weekly Report</h3>
+          <p class="service-description">Comprehensive weekly analytics and progress reports for informed healthcare
+            decisions</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 200 200" class="service-svg">
+              <circle cx="100" cy="60" r="25" fill="#62B6CB" />
+              <circle cx="60" cy="130" r="20" fill="#5FA8D3" />
+              <circle cx="100" cy="140" r="20" fill="#5FA8D3" />
+              <circle cx="140" cy="130" r="20" fill="#5FA8D3" />
+              <line x1="100" y1="85" x2="100" y2="120" stroke="#1B4965" stroke-width="3" />
+              <line x1="100" y1="120" x2="60" y2="130" stroke="#1B4965" stroke-width="3" />
+              <line x1="100" y1="120" x2="140" y2="130" stroke="#1B4965" stroke-width="3" />
+            </svg>
+          </div>
+          <h3 class="service-title">Family Dashboard</h3>
+          <p class="service-description">Real-time access for family members to monitor patient progress and receive
+            updates</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="subscription" class="subscription-section">
+    <div class="section-container">
+      <h2 class="section-title">Choose Your Plan</h2>
+      <div class="subscription-grid">
+        <div class="subscription-card">
+          <div class="plan-header">
+            <h3>Basic</h3>
+            <p class="plan-subtitle">Perfect for individuals</p>
+          </div>
+          <div class="plan-price">
+            <span class="currency">$</span>
+            <span class="amount">29</span>
+            <span class="period">/month</span>
+          </div>
+          <ul class="plan-features">
+            <li>Daily health monitoring</li>
+            <li>Basic recognition features</li>
+            <li>Weekly reports</li>
+            <li>Email support</li>
+            <li>1 family member access</li>
+          </ul>
+          <button class="plan-button">Select Plan</button>
+        </div>
+
+        <div class="subscription-card featured">
+          <div class="popular-badge">Most Popular</div>
+          <div class="plan-header">
+            <h3>Professional</h3>
+            <p class="plan-subtitle">For families and caregivers</p>
+          </div>
+          <div class="plan-price">
+            <span class="currency">$</span>
+            <span class="amount">79</span>
+            <span class="period">/month</span>
+          </div>
+          <ul class="plan-features">
+            <li>24/7 health monitoring</li>
+            <li>Advanced recognition features</li>
+            <li>Daily summary calls</li>
+            <li>Weekly detailed reports</li>
+            <li>Priority support</li>
+            <li>Up to 5 family members</li>
+            <li>Family dashboard access</li>
+          </ul>
+          <button class="plan-button">Select Plan</button>
+        </div>
+
+        <div class="subscription-card">
+          <div class="plan-header">
+            <h3>Enterprise</h3>
+            <p class="plan-subtitle">For healthcare facilities</p>
+          </div>
+          <div class="plan-price">
+            <span class="currency">$</span>
+            <span class="amount">199</span>
+            <span class="period">/month</span>
+          </div>
+          <ul class="plan-features">
+            <li>Unlimited patient monitoring</li>
+            <li>Full recognition suite</li>
+            <li>Custom reporting</li>
+            <li>API access</li>
+            <li>Dedicated support</li>
+            <li>Unlimited family members</li>
+            <li>Advanced analytics</li>
+            <li>Custom integrations</li>
+          </ul>
+          <button class="plan-button">Contact Sales</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer id="contact" class="footer">
+    <div class="footer-container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-logo">
+            <svg class="logo-icon" viewBox="0 0 50 50" width="40" height="40">
+              <circle cx="25" cy="25" r="20" fill="#62B6CB" opacity="0.3" />
+              <path d="M25 10 L25 40 M15 25 L35 25" stroke="#CAE9FF" stroke-width="3" stroke-linecap="round" />
+              <circle cx="25" cy="25" r="5" fill="#62B6CB" />
+            </svg>
+            <span class="logo-text">NeuroLink</span>
+          </div>
+          <p class="footer-description">Connecting minds, empowering health through innovative neurological care
+            solutions.</p>
+        </div>
+
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#subscription">Pricing</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#services">Recognition Feature</a></li>
+            <li><a href="#services">Daily Summary</a></li>
+            <li><a href="#services">Weekly Reports</a></li>
+            <li><a href="#services">Family Dashboard</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>Contact Us</h4>
+          <ul class="contact-info">
+            <li>Email: info@neurolink.com</li>
+            <li>Phone: +1 (555) 123-4567</li>
+            <li>Address: 123 Healthcare Ave, Medical District</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 NeuroLink developed by DeadCoders All rights reserved.</p>
+        <div class="footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="/main.js"></script>
+</body>
+
+</html>
