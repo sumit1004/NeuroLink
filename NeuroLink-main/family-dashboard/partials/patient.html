@@ -1,0 +1,73 @@
+<div class="patient-config">
+  <div class="card">
+    <h2><i class="fa-solid fa-user-injured"></i> Patient Configuration</h2>
+    <p class="hint">Configure the patient profile that all features will use.</p>
+
+    <form id="patient-form">
+      <div class="form-group">
+        <label for="patient-name">Patient Display Name *</label>
+        <input
+          type="text"
+          id="patient-name"
+          name="patient-name"
+          placeholder="e.g., John Doe"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="patient-dob">Date of Birth *</label>
+        <input type="date" id="patient-dob" name="patient-dob" required />
+      </div>
+
+      <div class="form-group">
+        <label for="patient-home-location">Home Location</label>
+        <input
+          type="text"
+          id="patient-home-location"
+          name="patient-home-location"
+          placeholder="e.g., 123 Main St, City, State"
+        />
+      </div>
+
+      <div class="form-group">
+        <label>Emergency Contact</label>
+        <div class="emergency-contact-fields">
+          <input
+            type="text"
+            id="emergency-name"
+            name="emergency-name"
+            placeholder="Contact Name"
+          />
+          <input
+            type="tel"
+            id="emergency-phone"
+            name="emergency-phone"
+            placeholder="Phone Number"
+          />
+          <input
+            type="text"
+            id="emergency-relation"
+            name="emergency-relation"
+            placeholder="Relation (e.g., Spouse, Son)"
+          />
+        </div>
+      </div>
+
+      <div id="patient-error" class="error-message hidden"></div>
+      <div id="patient-success" class="success-message hidden"></div>
+
+      <button type="submit" class="btn-primary">
+        <i class="fa-solid fa-save"></i> Save Patient Configuration
+      </button>
+    </form>
+  </div>
+
+  <div id="current-patient-info" class="card" style="margin-top: 20px;">
+    <h3>Current Patient Information</h3>
+    <div id="patient-details">
+      <p class="loading">Loading patient information...</p>
+    </div>
+  </div>
+</div>
+

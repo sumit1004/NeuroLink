@@ -1,0 +1,176 @@
+body,
+html {
+  height: 100%;
+}
+
+.dashboard {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 270px;
+  background: #f8fbff;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  box-shadow: inset -1px 0 0 var(--border);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.brand i {
+  font-size: 2rem;
+  color: var(--brand);
+}
+
+.brand p {
+  font-size: 0.85rem;
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  flex: 1;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem;
+  border-radius: 14px;
+  font-size: 0.95rem;
+  background: transparent;
+  color: var(--text);
+  border: 1px solid transparent;
+}
+
+.nav-link.active,
+.nav-link:focus-visible {
+  background: white;
+  border-color: var(--border);
+  color: var(--brand-dark);
+  box-shadow: var(--shadow);
+}
+
+.logout-btn {
+  background: #fee2e2;
+  color: #b91c1c;
+  padding: 0.85rem 1rem;
+}
+
+.content-wrapper {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.patient-info {
+  text-align: right;
+}
+
+.content-area {
+  flex: 1;
+}
+
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.grid.two {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.grid.three {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.table {
+  width: 100%;
+  border-spacing: 0;
+}
+
+.table th,
+.table td {
+  padding: 0.75rem;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+
+.alert-popup {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  background: #fee2e2;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  z-index: 1000;
+  width: min(360px, 90%);
+}
+
+.alert-content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.alert-content i {
+  color: #dc2626;
+  font-size: 1.5rem;
+}
+
+#dismiss-alert {
+  background: none;
+  box-shadow: none;
+  color: var(--muted);
+  padding: 0.25rem;
+}
+
+@media (max-width: 960px) {
+  .dashboard {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .sidebar nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .nav-link {
+    flex: 1 1 45%;
+  }
+
+  .patient-info {
+    text-align: left;
+  }
+}
+

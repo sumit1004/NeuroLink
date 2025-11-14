@@ -1,0 +1,110 @@
+.routine-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.routine-card {
+  border-left: 6px solid var(--brand);
+  padding-left: 1rem;
+}
+
+.tasks {
+  margin-top: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.tasks li {
+  list-style: none;
+  background: #f7faff;
+  padding: 0.5rem 0.75rem;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.days-selector {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+.day-checkbox {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.day-checkbox input[type="checkbox"] {
+  display: none;
+}
+
+.day-checkbox span {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: #f0f4f8;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  color: var(--text);
+  font-weight: 500;
+  transition: all 0.2s ease;
+  min-width: 50px;
+  text-align: center;
+}
+
+.day-checkbox input[type="checkbox"]:checked + span {
+  background: var(--brand);
+  color: white;
+  border-color: var(--brand);
+  box-shadow: 0 2px 8px rgba(74, 144, 226, 0.3);
+}
+
+.day-checkbox:hover span {
+  border-color: var(--brand);
+  transform: translateY(-1px);
+}
+
+.routines-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.routines-table thead {
+  background: #f0f4f8;
+}
+
+.routines-table th {
+  font-weight: 600;
+  color: var(--text);
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+}
+
+.routines-table tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+.routines-table tbody tr:hover {
+  background-color: #f8fbff;
+}
+
+.routines-table td {
+  vertical-align: middle;
+}
+
+.routines-table button {
+  transition: all 0.2s ease;
+}
+
+.routines-table button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+

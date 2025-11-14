@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NeuroLink Family Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/dashboard.css" />
+    <link rel="stylesheet" href="css/patient.css" />
+  </head>
+  <body>
+    <div id="loading-screen" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: white; display: flex; align-items: center; justify-content: center; z-index: 9999;">
+      <div style="text-align: center;">
+        <i class="fa-solid fa-brain" style="font-size: 3rem; color: #4A90E2; margin-bottom: 1rem;"></i>
+        <p>Loading NeuroLink Dashboard...</p>
+      </div>
+    </div>
+    <div class="dashboard" style="display: none;">
+      <aside class="sidebar">
+        <div class="brand">
+          <i class="fa-solid fa-brain"></i>
+          <div>
+            <h1>NeuroLink</h1>
+            <p>Family Portal</p>
+          </div>
+        </div>
+        <nav>
+          <button class="nav-link" data-tab="patient">
+            <i class="fa-solid fa-user-injured"></i> Patient Config
+          </button>
+          <button class="nav-link active" data-tab="analytics">
+            <i class="fa-solid fa-chart-line"></i> Analytics
+          </button>
+          <button class="nav-link" data-tab="knownPeople">
+            <i class="fa-solid fa-users"></i> Known People
+          </button>
+          <button class="nav-link" data-tab="healthRecords">
+            <i class="fa-solid fa-file-medical"></i> Health Records
+          </button>
+          <button class="nav-link" data-tab="routines">
+            <i class="fa-solid fa-list-check"></i> Routines
+          </button>
+          <button class="nav-link" data-tab="location">
+            <i class="fa-solid fa-location-dot"></i> Live Location
+          </button>
+          <button class="nav-link" data-tab="conversations">
+            <i class="fa-solid fa-microphone-lines"></i> Conversations
+          </button>
+          <button class="nav-link" data-tab="doctors">
+            <i class="fa-solid fa-user-doctor"></i> Doctors
+          </button>
+        </nav>
+        <button id="logout-btn" class="logout-btn">
+          <i class="fa-solid fa-right-from-bracket"></i> Logout
+        </button>
+      </aside>
+      <main class="content-wrapper">
+        <header class="top-bar">
+          <div>
+            <h2 id="page-title">Analytics Overview</h2>
+            <p id="user-email">Loading user...</p>
+          </div>
+          <div id="patient-info" class="patient-info">
+            <h4 id="patient-name">Patient: —</h4>
+            <p id="patient-dob"></p>
+          </div>
+        </header>
+        <section id="content" class="content-area">
+          <!-- Dynamic content -->
+        </section>
+      </main>
+    </div>
+
+    <div id="alert-popup" class="alert-popup hidden">
+      <div class="alert-content">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <div>
+          <h3 id="alert-title">Alert</h3>
+          <p id="alert-body"></p>
+          <small id="alert-timestamp"></small>
+        </div>
+        <button id="dismiss-alert">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+    </div>
+
+    <audio id="alert-audio" src="https://actions.google.com/sounds/v1/alarms/alarm_clock.ogg" preload="auto"></audio>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+    <script type="module" src="js/dashboard.js"></script>
+  </body>
+</html>
+

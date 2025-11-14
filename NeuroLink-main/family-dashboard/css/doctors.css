@@ -1,0 +1,11 @@
+.doctor-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.doctor-card a {
+  color: var(--brand-dark);
+  text-decoration: none;
+}
+

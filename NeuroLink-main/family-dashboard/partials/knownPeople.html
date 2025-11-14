@@ -1,0 +1,26 @@
+<section>
+  <link rel="stylesheet" href="css/knownPeople.css" />
+  <div class="card">
+    <h3>Add Known Person</h3>
+    <form id="known-form">
+      <div class="form-grid">
+        <div>
+          <label>Name</label>
+          <input type="text" name="name" required />
+        </div>
+        <div>
+          <label>Relation</label>
+          <input type="text" name="relation" required />
+        </div>
+        <div>
+          <label>Photo</label>
+          <input type="file" name="photo" accept="image/*" required />
+        </div>
+      </div>
+      <textarea name="notes" rows="3" placeholder="Notes"></textarea>
+      <button type="submit">Add Person</button>
+    </form>
+  </div>
+  <div id="known-people" class="known-people"></div>
+</section>
+

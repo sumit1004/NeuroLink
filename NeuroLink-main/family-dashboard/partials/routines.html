@@ -1,0 +1,58 @@
+<section>
+  <link rel="stylesheet" href="css/routines.css" />
+  <div class="card">
+    <h3>Create Routine</h3>
+    <form id="routine-form">
+      <div class="form-grid">
+        <div>
+          <label>Title</label>
+          <input type="text" name="title" placeholder="e.g., Morning Medication" required />
+        </div>
+        <div>
+          <label>Time</label>
+          <input type="time" name="time" required />
+        </div>
+      </div>
+      <div>
+        <label>Days of Week</label>
+        <div class="days-selector">
+          <label class="day-checkbox">
+            <input type="checkbox" name="days" value="Monday" />
+            <span>Mon</span>
+          </label>
+          <label class="day-checkbox">
+            <input type="checkbox" name="days" value="Tuesday" />
+            <span>Tue</span>
+          </label>
+          <label class="day-checkbox">
+            <input type="checkbox" name="days" value="Wednesday" />
+            <span>Wed</span>
+          </label>
+          <label class="day-checkbox">
+            <input type="checkbox" name="days" value="Thursday" />
+            <span>Thu</span>
+          </label>
+          <label class="day-checkbox">
+            <input type="checkbox" name="days" value="Friday" />
+            <span>Fri</span>
+          </label>
+          <label class="day-checkbox">
+            <input type="checkbox" name="days" value="Saturday" />
+            <span>Sat</span>
+          </label>
+          <label class="day-checkbox">
+            <input type="checkbox" name="days" value="Sunday" />
+            <span>Sun</span>
+          </label>
+        </div>
+        <small style="color: var(--muted); margin-top: 0.5rem; display: block;">Select at least one day</small>
+      </div>
+      <label>
+        <input type="checkbox" name="active" checked /> Active
+      </label>
+      <button type="submit">Save Routine</button>
+    </form>
+  </div>
+  <div id="routine-list" class="routine-list"></div>
+</section>
+

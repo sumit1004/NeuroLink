@@ -1,0 +1,113 @@
+.patient-config {
+  max-width: 800px;
+}
+
+.patient-config .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.patient-config label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.patient-config input[type="text"],
+.patient-config input[type="date"],
+.patient-config input[type="tel"] {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  background: white;
+}
+
+.patient-config .emergency-contact-fields {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.patient-info-display {
+  margin-top: 1rem;
+}
+
+.patient-info-display p {
+  margin: 0.75rem 0;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.patient-info-display p:last-child {
+  border-bottom: none;
+}
+
+.emergency-contact-display {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 2px solid var(--border);
+}
+
+.emergency-contact-display ul {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0;
+}
+
+.emergency-contact-display li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.emergency-contact-display li:last-child {
+  border-bottom: none;
+}
+
+.emergency-contact-display a {
+  color: var(--brand);
+  text-decoration: none;
+}
+
+.emergency-contact-display a:hover {
+  text-decoration: underline;
+}
+
+.hint {
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.warning {
+  color: #dc2626;
+  padding: 1rem;
+  background: #fee2e2;
+  border-radius: 8px;
+  border-left: 4px solid #dc2626;
+}
+
+.loading {
+  color: var(--muted);
+  font-style: italic;
+}
+
+.error-message {
+  background: #fee2e2;
+  color: #b91c1c;
+  padding: 0.75rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  border-left: 4px solid #dc2626;
+}
+
+.success-message {
+  background: #d1fae5;
+  color: #065f46;
+  padding: 0.75rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  border-left: 4px solid #10b981;
+}
+
