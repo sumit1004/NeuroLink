@@ -1,3 +1,283 @@
+/* CSS Variables for theming */
+:root {
+    --brand-dark: #2c3e50;
+    --brand-primary: #3498db;
+    --brand-secondary: #e74c3c;
+    --brand-light: #ecf0f1;
+    --brand-white: #ffffff;
+    --shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
+    --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+    --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+    --transition: all 0.3s ease;
+}
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); */
+    min-height: 100vh;
+    color: var(--brand-dark);
+    animation: backgroundShift 10s ease infinite;
+}
+/* 
+@keyframes backgroundShift {
+    0%, 100% { background: linear-gradient(135deg, #828491 0%, #ada9b0 100%); }
+    50% { background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%); }
+} */
+
+/* section {
+    max-width: 1200px;
+    margin: 0 auto;
+    animation: fadeIn 0.8s ease-out;
+} */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Card Styles */
+.card {
+    background: var(--brand-white);
+    border-radius: 15px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-lg);
+    transition: var(--transition);
+    animation: slideIn 0.6s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.card h3 {
+    color: var(--brand-dark);
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid var(--brand-primary);
+    animation: titleGlow 2s ease-in-out infinite;
+}
+
+@keyframes titleGlow {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+}
+
+/* Form Styles */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-grid > div {
+    animation: formFieldPop 0.5s ease-out backwards;
+}
+
+.form-grid > div:nth-child(1) { animation-delay: 0.1s; }
+.form-grid > div:nth-child(2) { animation-delay: 0.2s; }
+.form-grid > div:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes formFieldPop {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--brand-dark);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+input[type="text"],
+input[type="tel"] {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid var(--brand-light);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: var(--transition);
+    background: var(--brand-white);
+}
+
+input[type="text"]:focus,
+input[type="tel"]:focus {
+    outline: none;
+    border-color: var(--brand-primary);
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+    transform: translateY(-2px);
+}
+
+input[type="text"]:hover,
+input[type="tel"]:hover {
+    border-color: var(--brand-primary);
+}
+
+/* Button Styles */
+button[type="submit"] {
+    background: linear-gradient(135deg, var(--brand-primary), #2980b9);
+    color: var(--brand-white);
+    border: none;
+    padding: 0.75rem 2rem;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+button[type="submit"]:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+button[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+button[type="submit"]:hover:before {
+    width: 300px;
+    height: 300px;
+}
+
+button[type="submit"]:active {
+    transform: translateY(0);
+}
+
+/* Your existing Doctor Grid styles preserved */
+.doctor-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1rem;
+    animation: gridAppear 0.8s ease-out 0.4s backwards;
+}
+
+@keyframes gridAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.doctor-card {
+    background: var(--brand-white);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+    animation: cardFloat 3s ease-in-out infinite;
+    animation-delay: calc(var(--card-index, 0) * 0.1s);
+}
+
+@keyframes cardFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+.doctor-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: var(--shadow-lg);
+}
+
+.doctor-card a {
+    color: var(--brand-dark);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.doctor-card a:hover {
+    color: var(--brand-primary);
+}
+
+/* Loading animation for new doctor cards */
+.doctor-card.new-entry {
+    animation: newCardEntry 0.5s ease-out;
+}
+
+@keyframes newCardEntry {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        padding: 1rem;
+    }
+    
+    .card {
+        padding: 1.5rem;
+    }
+    
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    button[type="submit"] {
+        width: 100%;
+    }
+}
+
 .doctor-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
