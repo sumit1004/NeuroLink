@@ -1,21 +1,154 @@
-#map {
-  width: 100%;
-  height: 400px;
-  border-radius: 20px;
-  overflow: hidden;
-}
-
-.location-meta {
-  margin-top: 1rem;
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
-.location-meta span {
-  background: #f7faff;
-  padding: 0.5rem 0.75rem;
-  border-radius: 999px;
-  font-size: 0.9rem;
-}
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        /* Container Styles */
+        section {
+            background: white;
+            border-radius: 30px;
+            padding: 2rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 800px;
+            width: 100%;
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        /* Card Styles */
+        .card {
+            background: #f0f4f8;
+            border: 2px solid #e2e8f0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Original CSS - Preserved Exactly */
+        #map {
+            width: 100%;
+            height: 400px;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+        
+        .location-meta {
+            margin-top: 1rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .location-meta span {
+            background: #f7faff;
+            padding: 0.5rem 0.75rem;
+            border-radius: 999px;
+            font-size: 0.9rem;
+        }
+        
+        /* Additional Enhancement Styles */
+        .location-meta span {
+            transition: all 0.3s ease;
+            cursor: default;
+            border: 1px solid transparent;
+            animation: slideIn 0.5s ease-out forwards;
+            opacity: 0;
+        }
+        
+        .location-meta span:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+        
+        .location-meta span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        
+        .location-meta span:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+        
+        .location-meta span:hover {
+            background: #e7f3ff;
+            transform: translateY(-2px);
+            border-color: #cbd5e0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+        
+        /* Loading Animation for Map */
+        #map::before {
+            content: 'Loading map...';
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            color: #718096;
+            font-size: 1.2rem;
+            animation: pulse 2s infinite;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 640px) {
+            section {
+                padding: 1.5rem;
+                border-radius: 20px;
+            }
+            
+            #map {
+                height: 300px;
+            }
+            
+            .location-meta {
+                flex-direction: column;
+            }
+            
+            .location-meta span {
+                width: 100%;
+                text-align: center;
+            }
+        }
 

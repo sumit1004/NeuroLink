@@ -127,3 +127,73 @@ button:hover {
   font-size: 0.9rem;
 }
 
+/* Layout helpers */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.page-title {
+  font-size: 1.4rem;
+  color: var(--text);
+}
+
+.page-sub {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* Button variants */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 0.9rem;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--brand), var(--brand-dark));
+  color: #fff;
+  font-weight: 600;
+  border: none;
+}
+
+.btn.secondary {
+  background: transparent;
+  color: var(--brand);
+  border: 1px solid var(--border);
+  box-shadow: none;
+}
+
+.btn.ghost {
+  background: transparent;
+  color: var(--text);
+  border: none;
+}
+
+/* Small responsive tweaks */
+@media (max-width: 600px) {
+  .auth-card {
+    padding: 1.25rem;
+    border-radius: 16px;
+  }
+
+  .card {
+    padding: 1rem;
+    border-radius: 16px;
+  }
+}
+
+/* Utility */
+.muted {
+  color: var(--muted);
+}
+
+
