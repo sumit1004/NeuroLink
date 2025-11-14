@@ -40,20 +40,21 @@ html {
 .sidebar nav {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.5rem; /* slightly tighter spacing so items fit vertically */
   flex: 1;
 }
 
 .nav-link {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  padding: 0.85rem 1rem;
-  border-radius: 14px;
+  gap: 0.6rem;
+  padding: 0.55rem 0.9rem; /* reduced vertical padding to fit more items */
+  border-radius: 12px;
   font-size: 0.95rem;
   background: transparent;
   color: var(--text);
   border: 1px solid transparent;
+  text-decoration: none;
 }
 
 .nav-link.active,
@@ -83,6 +84,16 @@ html {
   justify-content: space-between;
   align-items: center;
   gap: 1.5rem;
+}
+
+/* hide mobile-only top controls by default on desktop */
+.mobile-top {
+  display: none;
+}
+
+/* hide the close-menu (×) on desktop; only show on mobile */
+.close-menu {
+  display: none;
 }
 
 .patient-info {
@@ -166,12 +177,218 @@ html {
     flex-wrap: wrap;
   }
 
-  .nav-link {
+  /* .nav-link {
     flex: 1 1 45%;
-  }
+  } */
 
   .patient-info {
     text-align: left;
+  }
+}
+
+/* Mobile sidebar: hide by default, open via :target (CSS-only) */
+@media (max-width: 600px) {
+  /* show compact top controls */
+  .mobile-top {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: fixed;
+    top: 10px;
+    left: 12px;
+    z-index: 1400;
+    background: transparent;
+    padding: 0.25rem 0.5rem;
+    border-radius: 8px;
+  }
+
+  .menu-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: white;
+    box-shadow: var(--shadow);
+    text-decoration: none;
+    color: var(--text);
+    border: 1px solid var(--border);
+    z-index: 1700;
+  }
+
+  .hamburger {
+    width: 18px;
+    height: 2px;
+    background: var(--text);
+    display: block;
+    position: relative;
+  }
+
+  .hamburger::before,
+  .hamburger::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--text);
+  }
+
+  .hamburger::before {
+    top: -6px;
+  }
+
+  .hamburger::after {
+    top: 6px;
+  }
+
+  .mobile-brand {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--text);
+    margin-left: 6px;
+  }
+
+  /* make content area respect fixed top bar */
+  .content-wrapper {
+    padding-top: 64px;
+    transition: transform 0.25s ease;
+  }
+
+  /* Sidebar off-canvas by default */
+  aside#sidebar {
+    position: fixed;
+    top: 0;
+    left: -280px;
+    width: 270px;
+    height: 100vh;
+    padding: 1.5rem;
+    box-shadow: 0 30px 60px rgba(2,6,23,0.2);
+    transition: left 0.28s cubic-bezier(.2,.9,.2,1);
+    z-index: 1500;
+    background: #f8fbff;
+  }
+
+  /* Close button inside sidebar */
+  .close-menu {
+    display: block;
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: var(--muted);
+    background: transparent;
+    border-radius: 8px;
+    padding: 0.1rem 0.4rem;
+  }
+
+  /* When sidebar is targeted (clicked via #sidebar), bring it in and push content */
+  aside#sidebar:target {
+    left: 0;
+  }
+
+  aside#sidebar:target ~ .content-wrapper {
+    transform: translateX(270px);
+  }
+
+  /* hide the default top sticky appearance on mobile */
+  .sidebar {
+    position: fixed;
+    height: 100vh;
+  }
+
+  /* ensure nav links are full width on mobile inside the sidebar */
+  /* force vertical stacking inside the off-canvas sidebar and allow scrolling */
+  aside#sidebar {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  aside#sidebar nav {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.75rem;
+    flex: 1 1 auto;
+    overflow-y: auto;
+    padding-right: 0.25rem; /* room for scrollbar */
+  }
+
+  /* make nav links stack vertically and be full-width with aligned icon+text */
+  aside#sidebar nav .nav-link {
+    display: flex !important;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100% !important;
+    padding: 0.35rem 0.75rem !important; /* slightly tighter */
+    min-height: 44px; /* compact but still touch-friendly */
+    border-radius: 8px !important;
+    box-sizing: border-box;
+    text-align: left;
+    /* allow text to wrap so long labels won't force horizontal overflow */
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+  }
+
+  aside#sidebar nav .nav-link i { min-width: 22px; }
+
+  /* keep the sidebar brand compact */
+  .brand h1 {
+    font-size: 1.05rem;
+    margin: 0;
+  }
+
+  /* hide the sidebar brand on mobile (we show mobile brand in top bar) */
+  .sidebar-brand { display: none; }
+
+  /* style the moved brand shown in the top bar */
+  .mobile-top .brand {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-left: 6px;
+  }
+
+  .mobile-top .brand i {
+    font-size: 1.35rem;
+    color: var(--brand);
+  }
+
+  .mobile-top .brand h1 {
+    font-size: 1rem;
+    margin: 0;
+    line-height: 1;
+  }
+
+  .mobile-top .brand p { display: none; }
+
+  /* full-width white rectangle fixed behind the brand on mobile */
+  .mobile-top .brand {
+    position: relative;
+    height: 44px; /* match menu button height */
+    padding: 0; /* no padding as requested */
+    z-index: 1600; /* sit above the rectangle */
+  }
+
+  .mobile-top .brand::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 64px; /* same height as brand */
+    background: #ffffff;
+    box-shadow: var(--shadow);
+    border-radius: 0;
+    z-index: -100; /* behind the brand */
+  }
+
+  /* hide desktop wrapping behavior at narrower widths */
+  @media (max-width: 420px) {
+    .mobile-brand { font-size: 0.95rem; }
+    .menu-btn { width: 40px; height: 40px; }
   }
 }
 
