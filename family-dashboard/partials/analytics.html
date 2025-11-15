@@ -1,6 +1,6 @@
 <section class="analytics">
   <link rel="stylesheet" href="css/analytics.css" />
-  <div class="analytics-overview">
+  <!-- <div class="analytics-overview">
     <div class="card stat-card">
       <h3>Unknown Alerts (7d)</h3>
       <span id="stat-unknown-alerts">0</span>
@@ -16,8 +16,86 @@
     <div class="card stat-card">
       <h3>Active Tasks</h3>
       <span id="stat-active-tasks">0</span>
+    </div> -->
+  </div>
+  
+  <!-- Import Data Box -->
+  <div class="card import-data-card">
+    <div class="import-data-header">
+      <div>
+        <h3><i class="fa-solid fa-database"></i> Import Data</h3>
+        <p>Import local JSON data file to store in database and view analytics</p>
+      </div>
+      <div class="import-actions">
+        <label for="import-data-input" class="import-btn">
+          <i class="fa-solid fa-upload"></i> Import Local Data
+          <input type="file" id="import-data-input" accept=".json" style="display: none;" />
+        </label>
+        <button id="refresh-data-btn" class="refresh-btn">
+          <i class="fa-solid fa-refresh"></i> Refresh
+        </button>
+      </div>
+    </div>
+    <div id="import-status" class="import-status"></div>
+  </div>
+
+  <!-- File Import Modal -->
+  <div id="import-modal" class="import-modal">
+    <div class="import-modal-overlay"></div>
+    <div class="import-modal-content">
+      <div class="import-modal-header">
+        <h3><i class="fa-solid fa-file-upload"></i> Import Data File</h3>
+        <button class="import-modal-close" id="close-import-modal" aria-label="Close">
+          <i class="fa-solid fa-times"></i>
+        </button>
+      </div>
+      <div class="import-modal-body">
+        <div class="file-upload-area" id="file-upload-area">
+          <input type="file" id="file-input" accept=".json" />
+          <div class="file-upload-content">
+            <i class="fa-solid fa-cloud-arrow-up"></i>
+            <h4>Select JSON File</h4>
+            <p>Click to browse or drag and drop your JSON file here</p>
+            <span class="file-format-hint">Accepted format: .json</span>
+          </div>
+          <div class="file-selected" id="file-selected" style="display: none;">
+            <i class="fa-solid fa-file"></i>
+            <div class="file-info">
+              <span class="file-name" id="file-name"></span>
+              <span class="file-size" id="file-size"></span>
+            </div>
+            <button class="file-remove" id="file-remove">
+              <i class="fa-solid fa-times"></i>
+            </button>
+          </div>
+        </div>
+        <div class="import-modal-actions">
+          <button class="modal-btn cancel-btn" id="cancel-import">Cancel</button>
+          <button class="modal-btn import-submit-btn" id="submit-import" disabled>
+            <i class="fa-solid fa-upload"></i> Import File
+          </button>
+        </div>
+      </div>
     </div>
   </div>
+
+  <!-- Unified Data Count Display -->
+  <div class="card">
+    <h3><i class="fa-solid fa-chart-pie"></i> Data Overview</h3>
+    <div id="data-count-container" class="data-count-grid">
+      <div class="data-count-item loading">
+        <div class="data-count-icon">
+          <i class="fa-solid fa-spinner fa-spin"></i>
+        </div>
+        <p>Loading data counts...</p>
+      </div>
+    </div>
+    <div id="data-count-error" class="firebase-error" style="display: none;">
+      <i class="fa-solid fa-triangle-exclamation"></i>
+      <p id="data-count-error-message"></p>
+    </div>
+  </div>
+
   <div class="card">
     <h3>Recent Alerts</h3>
     <div id="alerts-timeline" class="timeline"></div>

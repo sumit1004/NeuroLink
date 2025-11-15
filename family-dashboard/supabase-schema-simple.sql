@@ -34,6 +34,9 @@ create table if not exists known_people (
   created_at timestamptz default now()
 );
 
+-- Add missing columns if they don't exist (for existing tables)
+alter table if exists known_people add column if not exists notes text;
+
 create table if not exists health_records (
   id uuid primary key default gen_random_uuid(),
   patient_id uuid references patients(id) on delete cascade,
@@ -100,8 +103,8 @@ create table if not exists doctor_contacts (
 do $$
 begin
   insert into storage.buckets (id, name, public, file_size_limit, allowed_mime_types)
-  values ('known_people', 'known_people', false, 52428800, ARRAY['image/jpeg', 'image/png', 'image/gif', 'image/webp'])
-  on conflict (id) do nothing;
+  values ('known_people', 'known_people', true, 52428800, ARRAY['image/jpeg', 'image/png', 'image/gif', 'image/webp'])
+  on conflict (id) do update set public = true;
   
   insert into storage.buckets (id, name, public, file_size_limit, allowed_mime_types)
   values ('health_records', 'health_records', false, 104857600, ARRAY['application/pdf', 'image/jpeg', 'image/png'])
@@ -271,6 +274,9 @@ create policy "Authenticated users can upload to known_people"
 
 create policy "Authenticated users can view known_people files"
   on storage.objects for select to authenticated using (bucket_id = 'known_people');
+
+create policy "Public can view known_people files"
+  on storage.objects for select using (bucket_id = 'known_people');
 
 create policy "Authenticated users can update known_people files"
   on storage.objects for update to authenticated using (bucket_id = 'known_people');

@@ -87,17 +87,32 @@ async function addKnownPerson(event) {
       .from(bucket)
       .getPublicUrl(storageData.path);
     
-    const photo_url = urlData?.publicUrl || '';
+    console.log("Storage path:", storageData.path);
+    console.log("URL Data:", urlData);
+    
+    const photo_url = urlData?.publicUrl || null;
+    
+    console.log("Final photo_url:", photo_url);
+    
+    if (!photo_url) {
+      alert("Failed to generate public URL for the photo.");
+      await supabaseClient.storage.from(bucket).remove([storageData.path]);
+      return;
+    }
 
     const payload = {
       patient_id: patientId,
       name: name,
       relation: relation,
       notes: form.notes?.value?.trim() || null,
-      photo_url,
+      photo_url: photo_url,
     };
 
+    console.log("Payload before insert:", payload);
+
     const { data, error } = await supabaseClient.from("known_people").insert(payload).select();
+    
+    console.log("Insert response - data:", data, "error:", error);
     
     if (error) {
       console.error("Database insert error:", error);
@@ -140,6 +155,9 @@ async function fetchKnownPeople() {
     .eq("patient_id", patientId)
     .order("created_at", { ascending: false });
 
+  console.log("Fetched data:", data);
+  console.log("Fetch error:", error);
+
   if (error) {
     container.innerHTML = `<p>${error.message}</p>`;
     return;
@@ -154,8 +172,34 @@ async function fetchKnownPeople() {
   data.forEach((person) => {
     const card = document.createElement("div");
     card.className = "card known-card";
+    
+    // Create image URL using authenticated Supabase request if photo_url exists
+    let imageUrl = "https://via.placeholder.com/160?text=No+Photo";
+    if (person.photo_url) {
+      // Extract the path from the full URL or use it directly
+      const pathMatch = person.photo_url.match(/\/storage\/v1\/object\/public\/(.+)$/);
+      const filePath = pathMatch ? pathMatch[1] : person.photo_url;
+      
+      // Generate a signed URL that works even if bucket is private
+      const signedUrlPromise = supabaseClient.storage
+        .from(bucket)
+        .createSignedUrl(filePath, 3600) // Valid for 1 hour
+        .then(({ data, error }) => {
+          if (data?.signedUrl) {
+            console.log("Generated signed URL for:", person.name, data.signedUrl);
+            return data.signedUrl;
+          }
+          console.log("Signed URL error:", error);
+          return imageUrl;
+        });
+      
+      // For now, use the public URL; it should work if bucket is public
+      imageUrl = person.photo_url;
+    }
+    
+    console.log("Rendering card for:", person.name, "Image URL:", imageUrl);
     card.innerHTML = `
-      <img src="${person.photo_url}" alt="${person.name}" />
+      <img src="${imageUrl}" alt="${person.name}" onerror="this.src='https://via.placeholder.com/160?text=No+Photo'" />
       <h3>${person.name}</h3>
       <p>${person.relation}</p>
       <p>${person.notes || ""}</p>
