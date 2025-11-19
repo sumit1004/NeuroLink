@@ -1,7 +1,7 @@
 NeuroLink – Intelligent Companion for Alzheimer’s Care
 Smart, Safe, and Connected Care for Alzheimer’s Patients
 
-Website live link:- https://deep-pdf.github.io/NeuroLink/
+Website live link:- (https://sumit1004.github.io/NeuroLink/)
 
 📌 Overview
 
